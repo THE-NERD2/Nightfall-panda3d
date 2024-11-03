@@ -1,0 +1,41 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '2.0.20'
+    id "com.github.johnrengelman.shadow" version "8.1.1"
+}
+
+group = 'org.nightfall'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    implementation("com.formdev:flatlaf:3.4.1")
+    implementation("com.miglayout:miglayout-swing:11.3")
+    implementation "org.jetbrains.kotlin:kotlin-reflect:2.0.0"
+}
+
+test {
+    useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(21)
+}
+
+tasks.register('createZIP', Zip) {
+    archiveFileName = "nightfall.zip"
+    destinationDirectory = file("$buildDir/dist")
+
+    from(shadowJar) {
+        into("libs")
+    }
+    from("python/src/*")
+    from("./start.sh")
+}
+shadowJar {
+    archiveFileName = "nightfall.jar"
+    destinationDirectory = file("$buildDir/libs")
+}
+createZIP.dependsOn shadowJar
