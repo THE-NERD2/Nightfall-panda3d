@@ -1,6 +1,6 @@
 package org.nightfall.worldgen
 
-/*import org.nightfall.Point
+import org.nightfall.Point
 import org.nightfall.materials.TileInstance
 import org.nightfall.mods.Mods
 import org.nightfall.TileMap
@@ -52,4 +52,4 @@ abstract class WorldGenerator {
 
     abstract val order: Order
     abstract fun addBlock(world: World, x: Int, y: Int, z: Int): TileInstance<*>?
-}*/
+}

@@ -1,6 +1,6 @@
 package org.nightfall.mods
 
-/*import org.nightfall.materials.Tile
+import org.nightfall.materials.Tile
 import org.nightfall.settings.CheckboxSetting
 import org.nightfall.worldgen.WorldGenerator
 import java.io.File
@@ -16,7 +16,7 @@ object Mods {
     val worldGenerators = arrayListOf<KClass<WorldGenerator>>()
     val checkboxSettings = arrayListOf<KClass<CheckboxSetting>>()
 
-    fun initialize(extras: Array<String>) {
+    fun initialize(extras: Array<out String>) {
         print("Loading mods...")
         val files = extras.toCollection(arrayListOf())
         files.addAll(File("mods/").listFiles()?.map { it.absolutePath } ?: listOf())
@@ -42,4 +42,4 @@ object Mods {
         }
         println("done!")
     }
-}*/
+}

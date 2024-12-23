@@ -4,4 +4,4 @@ plugins {
 
 rootProject.name = "Nightfall-panda3d"
 include 'framework'
-
+include 'default-mods'

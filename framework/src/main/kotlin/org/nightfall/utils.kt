@@ -1,6 +1,6 @@
 package org.nightfall
 
-//import org.nightfall.materials.TileInstance
+import org.nightfall.materials.TileInstance
 import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
 
@@ -14,7 +14,7 @@ data class Point(val x: Int, val y: Int, val z: Int) {
     val orthogonals by lazy { listOf(up, down, left, right, forward, backward) }
 }
 
-/*class TileMap(
+class TileMap(
     private val map: MutableMap<Point, TileInstance<*>> = mutableMapOf(),
     private val onSet: (Point, TileInstance<*>?) -> Unit
 ): MutableMap<Point, TileInstance<*>> by map {
@@ -29,7 +29,7 @@ data class Point(val x: Int, val y: Int, val z: Int) {
     override operator fun get(key: Point): TileInstance<*>? {
         return map[key]
     }
-}*/
+}
 
 val <T: Any> KClass<T>.instance: T?
     get() {

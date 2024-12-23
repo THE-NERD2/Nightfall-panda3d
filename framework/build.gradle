@@ -34,8 +34,4 @@ tasks.register('createZIP', Zip) {
     from("python/src/*")
     from("./start.sh")
 }
-shadowJar {
-    archiveFileName = "nightfall.jar"
-    destinationDirectory = file("$buildDir/libs")
-}
 createZIP.dependsOn shadowJar
